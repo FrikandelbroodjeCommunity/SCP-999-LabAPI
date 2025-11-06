@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using CustomPlayerEffects;
+using FrikanUtils.Audio;
 using FrikanUtils.Npc.Enums;
 using FrikanUtils.Npc.Following;
 using FrikanUtils.ProjectMer;
@@ -53,6 +54,7 @@ public static class EventHandler
             Instance.Dummy.SetRole(RoleTypeId.Tutorial);
             Instance.Dummy.Scale = new Vector3(0.4f, 0.4f, 0.4f);
             Instance.Dummy.Position = room.GetAbsolutePosition(Offset);
+            Instance.Dummy.IsGodModeEnabled = true;
             Instance.Dummy.EnableEffect<Invisible>();
         });
 
@@ -81,5 +83,10 @@ public static class EventHandler
         animator.Animator = obj.AnimationController.Animators.FirstOrDefault();
         animator.HasAnimator = animator.Animator != null;
         animator.InvertedControls = Scp999.Instance.Config.InvertedAnimationControls;
+
+        if (!(Scp999.IdlePaths.IsEmpty() && Scp999.WalkingPaths.IsEmpty()))
+        {
+            animator.AudioPlayer = new PlayerSpeakerAudioPlayer(npc.Dummy);
+        }
     }
 }

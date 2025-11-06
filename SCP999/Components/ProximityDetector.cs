@@ -3,7 +3,6 @@ using System.Linq;
 using FrikanUtils.Npc.Following;
 using LabApi.Features.Wrappers;
 using UnityEngine;
-using Logger = LabApi.Features.Console.Logger;
 
 namespace SCP_999.Components;
 
@@ -33,8 +32,7 @@ public class ProximityDetector : MonoBehaviour
 
                 if (!needsNewTarget) continue;
 
-                Logger.Info($"Set new target: {player.LogName}");
-                player.SendHint("<size=25><color=yellow>SCP-999 likes you!</color></size>", 10);
+                player.SendHint(Scp999.Instance.Config.FollowText, 10);
                 Npc.TargetPlayer = player;
                 needsNewTarget = false;
             }

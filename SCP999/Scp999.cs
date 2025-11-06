@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using FrikanUtils.FileSystem;
 using FrikanUtils.ProjectMer;
 using LabApi.Features;
 using LabApi.Loader.Features.Plugins;
@@ -17,6 +19,8 @@ public class Scp999 : Plugin<Config>
     public static Scp999 Instance { get; private set; }
 
     internal static SchematicObjectDataList Schematic;
+    internal static string[] IdlePaths;
+    internal static string[] WalkingPaths;
 
     public override void Enable()
     {
@@ -34,5 +38,23 @@ public class Scp999 : Plugin<Config>
     private async void Load()
     {
         Schematic = await MerUtilities.LoadFullSchematic(Config.SchematicName, Config.SchematicFolder);
+
+        var files = new List<string>();
+        foreach (var filename in Config.IdleFiles)
+        {
+            var path = await FileHandler.SearchFullPath(filename, Config.AudioFolder);
+            if (path != null) files.Add(path);
+        }
+
+        IdlePaths = files.ToArray();
+        files.Clear();
+
+        foreach (var filename in Config.WalkingFiles)
+        {
+            var path = await FileHandler.SearchFullPath(filename, Config.AudioFolder);
+            if (path != null) files.Add(path);
+        }
+
+        WalkingPaths = files.ToArray();
     }
 }
