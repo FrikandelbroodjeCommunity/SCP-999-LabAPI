@@ -2,6 +2,7 @@
 using System.Linq;
 using FrikanUtils.Npc.Following;
 using LabApi.Features.Wrappers;
+using PlayerRoles;
 using UnityEngine;
 
 namespace SCP_999.Components;
@@ -25,7 +26,7 @@ public class ProximityDetector : MonoBehaviour
             _healTimer = HealTime;
 
             var needsNewTarget = Npc.TargetPlayer == null;
-            foreach (var player in Player.List.Where(x => x.IsPlayer))
+            foreach (var player in Player.List.Where(x => x.IsPlayer && x.Team != Team.SCPs))
             {
                 if (Vector3.Distance(player.Position, Npc.Dummy.Position) > Range) continue;
                 player.Heal(HealAmount);
