@@ -4,14 +4,12 @@
 
 # About SCP-999
 
-Plugin for SCP-650 schematic of MER plugin based on Exiled framework of SCP: Secret Laboratory.
+The Site-02 staff has been a bit distracted by SCP-999. Because of this the 05-councel has decided that SCP-999 should
+be incinerated, however, the guards tasks with this could not do it to the cute monster. Ever since then 999 has been
+waiting patiently next to the incinerator.
 
-Every round SCP-650 will spawn somewhere in Site-02, attempting to jumpscare its personnel.
-If SCP-650 sees you, it will start chasing you, constantly sneaking up behind you.
-
-> [!TIP]
-> You can prevent SCP-650 from teleporting by looking at them, however this does not work if you are targeted by
-> SCP-650.
+Everyone that gets close to SCP-999, except for other SCPs, experience a healing effect. SCP-999 will attempt
+to stay close to these people out of fear of being left alone again.
 
 # Installation
 
@@ -33,15 +31,18 @@ correct folder. By default, this will be <code>Configs/{port/global}/FrikanUtils
 
 # Config
 
-| Config                                       | Default       | Meaning                                                                                                                                                                                                                    |
-|----------------------------------------------|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `schematic_folder`                           | `Maps`        | Folder used by the FrikanUtils file system to search for the schematic.                                                                                                                                                    |
-| `schematic_name`                             | `SCP650.json` | Name of the SCP-999 schematic file.                                                                                                                                                                                        |
-| `offset`                                     | ...           | The offset of the SCP-999 schematic relative to the spawned NPC.                                                                                                                                                           |
-| `inverted_animation_controls`                | `true`        | Whether to use the pause command to start the animation.                                                                                                                                                                   |           
-| `follow_text`                                | ...           | Text shown when SCP-999 starts following a player.                                                                                                                                                                         |
-| `idle_files`                                 | `[]`          | Audio files that can be randomly played while SCP-999 is standing idling. Leave empty to not play a sound while idling.                                                                                                    |
-| `walking_files`                              | `[]`          | Audio files that can be randomly played while SCP-999 is walking. Leave empty to not play a sound while walking.                                                                                                           |
-| `audio_folder`                               | `Audio`       | Folder used by the FrikanUtils file system to search for the audio files.                                                                                                                                                  |
-| `min_time`                                   | `45`          | Minimum amount of time in seconds between playing audio files.                                                                                                                                                             |
-| `max_time`                                   | `75`          | Maximum amount of time in seconds between playing audio files.                                                                                                                                                             |
+| Config                        | Default       | Meaning                                                                                                                              |
+|-------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `schematic_folder`            | `Maps`        | Folder used by the FrikanUtils file system to search for the schematic.                                                              |
+| `schematic_name`              | `SCP650.json` | Name of the SCP-999 schematic file.                                                                                                  |
+| `offset`                      | ...           | The offset of the SCP-999 schematic relative to the spawned NPC.                                                                     |
+| `inverted_animation_controls` | `true`        | Whether to use the pause command to start the animation.                                                                             |           
+| `follow_text`                 | ...           | Text shown when SCP-999 starts following a player.                                                                                   |
+| `idle_files`                  | `[]`          | Audio files that can be randomly played while SCP-999 is standing idling. Leave empty to not play a sound while idling.              |
+| `walking_files`               | `[]`          | Audio files that can be randomly played while SCP-999 is walking. Leave empty to not play a sound while walking.                     |
+| `audio_folder`                | `Audio`       | Folder used by the FrikanUtils file system to search for the audio files.                                                            |
+| `min_time`                    | `45`          | Minimum amount of time in seconds between playing audio files.                                                                       |
+| `max_time`                    | `75`          | Maximum amount of time in seconds between playing audio files.                                                                       |
+| `heal_interval`               | `5`           | Time in seconds between players being healed. Also, only each time the players are healed, can SCP-999 pick a new target it follows. |
+| `heal_amount`                 | `5`           | Amount of HP gathered at each interval.                                                                                              |
+| `heal_range`                  | `5`           | The range players need to be within to experience the healing effect. Also the range SCP-999 starts following players.               |
