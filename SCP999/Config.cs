@@ -35,4 +35,13 @@ public class Config
 
     [Description("The maximum amount of time in seconds between audio files being played")]
     public int MaxTime { get; set; } = 75;
+
+    [Description("Time in seconds between heals")]
+    public int HealInterval { get; set; } = 5;
+
+    [Description("Amount of HP that is healed each time")]
+    public int HealAmount { get; set; } = 5;
+
+    [Description("The range in which SCP-999 can heal and start following players")]
+    public int HealRange { get; set; } = 5;
 }

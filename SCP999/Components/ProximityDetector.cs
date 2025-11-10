@@ -11,11 +11,9 @@ public class ProximityDetector : MonoBehaviour
 {
     [NonSerialized] public FollowingNpc Npc;
 
-    private const int HealTime = 10;
-    private const int HealAmount = 5;
-    private const int Range = 5;
+    private static Config Config => Scp999.Instance.Config;
 
-    private float _healTimer = HealTime;
+    private float _healTimer = Config.HealInterval;
 
     private void Update()
     {
@@ -23,17 +21,17 @@ public class ProximityDetector : MonoBehaviour
 
         if (_healTimer < 0)
         {
-            _healTimer = HealTime;
+            _healTimer = Config.HealInterval;
 
             var needsNewTarget = Npc.TargetPlayer == null;
             foreach (var player in Player.List.Where(x => x.IsPlayer && x.Team != Team.SCPs))
             {
-                if (Vector3.Distance(player.Position, Npc.Dummy.Position) > Range) continue;
-                player.Heal(HealAmount);
+                if (Vector3.Distance(player.Position, Npc.Dummy.Position) > Config.HealRange) continue;
+                player.Heal(Config.HealAmount);
 
                 if (!needsNewTarget) continue;
 
-                player.SendHint(Scp999.Instance.Config.FollowText, 10);
+                player.SendHint(Config.FollowText, 10);
                 Npc.TargetPlayer = player;
                 needsNewTarget = false;
             }
