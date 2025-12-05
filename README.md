@@ -18,8 +18,8 @@ to stay close to these people out of fear of being left alone again.
 > - [FrikanUtils](https://github.com/FrikandelbroodjeCommunity/FrikanUtils/blob/master/FrikanUtils/README.md)
 > - [FrikanUtils-ProjectMer](https://github.com/FrikandelbroodjeCommunity/FrikanUtils/blob/master/FrikanUtils-ProjectMer/README.md)
 > - [FrikanUtils-Audio](https://github.com/FrikandelbroodjeCommunity/FrikanUtils/blob/master/FrikanUtils-Audio/README.md)
-> - [NVorbis](https://github.com/NVorbis/NVorbis/releases/tag/v0.10.5)
 > - [ProjectMER](https://github.com/Michal78900/ProjectMER/releases/latest)
+> - [NVorbis](https://github.com/NVorbis/NVorbis/releases/tag/v0.10.5) (Place in the dependencies folder `LabAPI/dependencies/{port/global}`)
 
 Install the dependencies above, together with
 the [latest release](https://github.com/FrikandelbroodjeCommunity/SCP-999-LabAPI/releases/latest) of the SCP-999 plugin
@@ -27,7 +27,7 @@ and place them in your LabAPI plugin folder.
 
 The plugin requires SCP-999 to be provided as a schematic, download it from
 the [releases page](https://github.com/FrikandelbroodjeCommunity/SCP-999-LabAPI/releases/latest) and place it in the
-correct folder. By default, this will be <code>Configs/{port/global}/FrikanUtils/Maps/SCP-999-3D.zip</code>.
+correct folder. By default, this will be <code>LabAPI/configs/{port/global}/FrikanUtils/Maps/SCP-999-3D.zip</code>.
 
 # Config
 
